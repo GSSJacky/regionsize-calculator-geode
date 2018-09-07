@@ -1,6 +1,6 @@
 # Region Size Calculator
 
-## prerequisite
+## Prerequisite
 
 1.Gemfire 9.x
 
@@ -22,24 +22,29 @@ Function execution will also affect PDX deserialization. If your function casts 
 ## Installation
 
 Step1: 
+
 Download this project to a local env and then unzip it as a folder such as [geode-region-size-calculator].
 
 Step2:
+
 Download gemfire product zip file from pivotal network such as pivotal-gemfire-9.5.1.zip. Put it into [geode-region-size-calculator]/gemfireproductlist foder.
 
 Step3:
+
 Modify the Dockerfile according to your gemfire product version:
 ```
 ENV GEMFIREVERSION 9.5.1
 ```
 
 Step4:
+
 Open a terminal and move to this folder, then run the below docker command to build a docker image(Including two major actions: compile the maven project and setup gemfire9 env):
 ```
 docker build . -t regionsizecalculator9:0.1
 ```
 
 Step5:
+
 Login into the gemfire9 env contain and verify the function execution service.
 ```
 docker run -it regionsizecalculator9:0.1 bash
