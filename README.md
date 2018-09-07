@@ -342,19 +342,21 @@ Execution summary
 
 ## "region-size-calculator" Function exection service additional information
 
-The function takes one required argument and one optional argument.
+1.The function takes one required argument and one optional argument.
 
-Required argument: the name of the region
+**Required argument:**  the name of the region
 
-Optional argument: the number of samples to take. If you have a region with 1 billion entries, you may deem it unnecessary to go through each entry and calculate its size. For this reason, this argument will limit the number of entries to sample and the total size will be projected from the results * the number of entries in the region.
+**Optional argument:** the number of samples to take. If you have a region with 1 billion entries, you may deem it unnecessary to go through each entry and calculate its size. For this reason, this argument will limit the number of entries to sample and the total size will be projected from the results * the number of entries in the region.
 
-Function execution arguments in gfsh are comma-delimited strings.
+2.Function execution arguments in gfsh are comma-delimited strings.
 
 
 ## Reference
 
 1.Gemfire8.2.x based gemfire region size calculator utility.
+
 https://github.com/Pivotal-Data-Engineering/gemfire-region-size-calculator
 
 2.Gemfire6.x based gemfire region calculator utility.
+
 https://communities.vmware.com/docs/DOC-20695
