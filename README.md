@@ -21,29 +21,29 @@ Function execution will also affect PDX deserialization. If your function casts 
 
 ## Installation
 
-Step1: 
+**_Step1:_** 
 
 Download this project to a local env and then unzip it as a folder such as [geode-region-size-calculator].
 
-Step2:
+**_Step2:_**
 
 Download gemfire product zip file from pivotal network such as pivotal-gemfire-9.5.1.zip. Put it into [geode-region-size-calculator]/gemfireproductlist foder.
 
-Step3:
+**_Step3:_** 
 
 Modify the Dockerfile according to your gemfire product version:
 ```
 ENV GEMFIREVERSION 9.5.1
 ```
 
-Step4:
+**_Step4:_** 
 
 Open a terminal and move to this folder, then run the below docker command to build a docker image(Including two major actions: compile the maven project and setup gemfire9 env):
 ```
 docker build . -t regionsizecalculator9:0.1
 ```
 
-Step5:
+**_Step5:_** 
 
 Login into the gemfire9 env contain and verify the function execution service.
 ```
@@ -343,7 +343,9 @@ Execution summary
 ## "region-size-calculator" Function exection service additional information
 
 The function takes one required argument and one optional argument.
+
 Required argument: the name of the region
+
 Optional argument: the number of samples to take. If you have a region with 1 billion entries, you may deem it unnecessary to go through each entry and calculate its size. For this reason, this argument will limit the number of entries to sample and the total size will be projected from the results * the number of entries in the region.
 
 Function execution arguments in gfsh are comma-delimited strings.
