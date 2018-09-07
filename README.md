@@ -18,6 +18,14 @@ Function execution will also affect PDX deserialization. If your function casts 
 
 2.The Region Size Calculator will return both the size of the deserialized storage and serialized storage. You can estimate the real size of the region based on your use. If you do not use “Select *” and do not cast PDX objects to the Domain object in functions, your region size will be the sum of the keys and the deserialized values.
 
+3.**region-size-calculator** Function exection service parameters:
+
+**Required argument:**  the name of the region
+
+**Optional argument:** the number of samples to take. If you have a region with 1 billion entries, you may deem it unnecessary to go through each entry and calculate its size. For this reason, this argument will limit the number of entries to sample and the total size will be projected from the results * the number of entries in the region.
+
+Function execution arguments in gfsh are **comma-delimited strings**.
+
 
 ## Installation
 
@@ -338,17 +346,6 @@ Execution summary
 172.16.196.210(server1:6205)<v1>:1025 | [{Serialized values size=756,000, Keys size=756,000, Region type=Partitioned, Entries=12,000}]
 ```
 
-
-
-## "region-size-calculator" Function exection service additional information
-
-1.The function takes one required argument and one optional argument.
-
-**Required argument:**  the name of the region
-
-**Optional argument:** the number of samples to take. If you have a region with 1 billion entries, you may deem it unnecessary to go through each entry and calculate its size. For this reason, this argument will limit the number of entries to sample and the total size will be projected from the results * the number of entries in the region.
-
-2.Function execution arguments in gfsh are comma-delimited strings.
 
 
 ## Reference
