@@ -26,7 +26,7 @@ Output items are as the below, the size unit is **Byte**.
 - *Region type*
 - *Entries*
 
-- Current total Region size = Deserialized values size + Serialized values size + Keys size
+**Current total Region size = Deserialized values size + Serialized values size + Keys size**
 
 *For example:*
 ```
