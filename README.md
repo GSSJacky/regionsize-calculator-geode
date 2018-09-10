@@ -6,7 +6,7 @@
 
 2.Use docker to compile the maven project and gemfire docker image to connect with gemfire cluster or test in gemfire docker container. Tested with Docker Community Edition for Mac 18.06.0-ce-mac69 (26398)
 
-## Usage Introduction
+## Usage
 
 This Function Execution Service： `region-size-calculator` Usage
 
