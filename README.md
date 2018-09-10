@@ -26,6 +26,8 @@ Output items are as the below, the size unit is **Byte**.
 - *Region type*
 - *Entries*
 
+- Current total Region size = Deserialized values size + Serialized values size + Keys size
+
 *For example:*
 ```
 gfsh>execute function --id=region-size-calculator --arguments="exampleRegion,10" --member=server1
