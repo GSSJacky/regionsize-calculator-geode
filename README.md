@@ -6,7 +6,36 @@
 
 2.Use docker to compile the maven project and gemfire docker image to connect with gemfire cluster or test in gemfire docker container. Tested with Docker Community Edition for Mac 18.06.0-ce-mac69 (26398)
 
-## Introduction
+## Usage Introduction
+
+This Function Execution Service： `region-size-calculator` Usage
+
+**Input:**
+
+- *Required argument*:  the name of the region
+- *Optional argument*: the number of samples to take. If you have a region with 1 billion entries, you may deem it unnecessary to go through each entry and calculate its size. For this reason, this argument will limit the number of entries to sample and the total size will be projected from the results * the number of entries in the region.
+- Function execution arguments in gfsh are **comma-delimited strings**
+
+
+**Output:**
+Output items are as the below, the size unit is **Byte**.
+*Deserialized values size* 
+*Serialized values size*
+*Keys size*
+*Region type*
+*Entries*
+
+*For example:*
+```
+gfsh>execute function --id=region-size-calculator --arguments="exampleRegion,10" --member=server1
+Execution summary
+
+         Member ID/Name          | Function Execution Result
+-------------------------------- | ----------------------------------------------------------------------------------------------------------------
+172.17.0.2(server1:162)<v1>:1025 | [{Deserialized values size=720, Serialized values size=170, Keys size=480, Region type=Partitioned, Entries=10}]
+```
+
+## Considerations
 
 The cost of calculating object sizes in a high-speed data grid is too expensive to perform on each entry. This Region Size Calculator calculates the sizes based on the following a few considerations.
 
@@ -17,14 +46,6 @@ If you store your objects using PDX and do queries with “Select *”, GemFire 
 Function execution will also affect PDX deserialization. If your function casts a PDX object to it’s domain object, the object will be stored in deserialized form on that node and that node only temporarily. 
 
 2.The Region Size Calculator will return both the size of the deserialized storage and serialized storage. You can estimate the real size of the region based on your use. If you do not use “Select *” and do not cast PDX objects to the Domain object in functions, your region size will be the sum of the keys and the deserialized values.
-
-3.**region-size-calculator** Function exection service parameters:
-
-**Required argument:**  the name of the region
-
-**Optional argument:** the number of samples to take. If you have a region with 1 billion entries, you may deem it unnecessary to go through each entry and calculate its size. For this reason, this argument will limit the number of entries to sample and the total size will be projected from the results * the number of entries in the region.
-
-Function execution arguments in gfsh are **comma-delimited strings**.
 
 
 ## Installation
