@@ -19,11 +19,11 @@ This Function Execution Service： `region-size-calculator` Usage
 
 **Output:**
 Output items are as the below, the size unit is **Byte**.
-*Deserialized values size* 
-*Serialized values size*
-*Keys size*
-*Region type*
-*Entries*
+- *Deserialized values size* 
+- *Serialized values size*
+- *Keys size*
+- *Region type*
+- *Entries*
 
 *For example:*
 ```
